@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Isekai Character Sheet</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1e1e1e;
+      color: #f5f5f5;
+      padding: 30px;
+    }
+    h1, h2 {
+      color: #ffd700;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 25px;
+    }
+    th, td {
+      border: 1px solid #888;
+      padding: 6px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background-color: #333;
+    }
+    input[type="text"], input[type="number"], textarea {
+      width: 100%;
+      padding: 6px;
+      background-color: #2e2e2e;
+      border: 1px solid #555;
+      color: #fff;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 50px;
+    }
+    .small {
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Isekai Character Sheet</h1>
+
+  <!-- Basic Info -->
+  <h2>Basic Info</h2>
+  <table>
+    <tr>
+      <th>Name</th>
+      <td><input type="text"></td>
+      <th>Race</th>
+      <td><input type="text"></td>
+    </tr>
+    <tr>
+      <th>Age</th>
+      <td><input type="number"></td>
+      <th>Primary Class</th>
+      <td><input type="text"></td>
+    </tr>
+    <tr>
+      <th>Secondary Class</th>
+      <td colspan="3"><input type="text"></td>
+    </tr>
+  </table>
+
+  <!-- Attributes -->
+  <h2>Attributes</h2>
+  <table>
+    <tr>
+      <th>Strength (STR)</th>
+      <td><input type="number"></td>
+      <th>Dexterity (DEX)</th>
+      <td><input type="number"></td>
+    </tr>
+    <tr>
+      <th>Constitution (CON)</th>
+      <td><input type="number"></td>
+      <th>Intelligence (INT)</th>
+      <td><input type="number"></td>
+    </tr>
+    <tr>
+      <th>Wisdom (WIS)</th>
+      <td><input type="number"></td>
+      <th>Charisma (CHA)</th>
+      <td><input type="number"></td>
+    </tr>
+    <tr>
+      <th>Luck (LCK)</th>
+      <td><input type="number"></td>
+      <td colspan="2"></td>
+    </tr>
+  </table>
+
+  <!-- Derived Combat Stats -->
+  <h2>Derived Combat Stats</h2>
+  <table>
+    <tr>
+      <th>Stat</th>
+      <th>Formula</th>
+      <th>Editable Value</th>
+    </tr>
+    <tr><td>Health Points (HP)</td><td>10 + (CON × 7)</td><td><input type="number"></td></tr>
+    <tr><td>Mana Points (MP)</td><td>10 + (INT × 7)</td><td><input type="number"></td></tr>
+    <tr><td>Attack Power (AP)</td><td>(½ STR) + Weapon Attack</td><td><input type="number"></td></tr>
+    <tr><td>Defense</td><td>(½ CON) + Armor Rating</td><td><input type="number"></td></tr>
+    <tr><td>Speed</td><td>DEX × 2</td><td><input type="number"></td></tr>
+    <tr><td>Magic Attack (MA)</td><td>INT + d100</td><td><input type="text" placeholder="e.g., 80 + d100"></td></tr>
+    <tr><td>Magic Defense (MD)</td><td>WIS + Magic Resist</td><td><input type="number"></td></tr>
+    <tr><td>HP Regen / min</td><td>CON × 0.5</td><td><input type="number"></td></tr>
+    <tr><td>MP Regen / min</td><td>INT × 0.3</td><td><input type="number"></td></tr>
+  </table>
+
+  <!-- Worn Gear -->
+  <h2>Worn Gear</h2>
+  <table class="small">
+    <tr>
+      <th style="width: 20%;">Slot</th>
+      <th style="width: 30%;">Item Name</th>
+      <th style="width: 50%;">Effect / Notes</th>
+    </tr>
+    <tr><td>Head</td><td><input type="text"></td><td><textarea></textarea></td></tr>
+    <tr><td>Body</td><td><input type="text"></td><td><textarea></textarea></td></tr>
+    <tr><td>Legs</td><td><input type="text"></td><td><textarea></textarea></td></tr>
+    <tr><td>Feet</td><td><input type="text"></td><td><textarea></textarea></td></tr>
+    <tr><td>Main Weapon</td><td><input type="text"></td><td><textarea></textarea></td></tr>
+    <tr><td>Off-Hand / Shield</td><td><input type="text"></td><td><textarea></textarea></td></tr>
+    <tr><td>Ring / Trinket 1</td><td><input type="text"></td><td><textarea></textarea></td></tr>
+    <tr><td>Ring / Trinket 2</td><td><input type="text"></td><td><textarea></textarea></td></tr>
+    <tr><td>Cloak / Accessory</td><td><input type="text"></td><td><textarea></textarea></td></tr>
+  </table>
+
+  <!-- Inventory -->
+  <h2>Inventory</h2>
+  <table class="small">
+    <tr>
+      <th style="width: 30%;">Item</th>
+      <th style="width: 15%;">Quantity</th>
+      <th style="width: 55%;">Effect / Description</th>
+    </tr>
+    <tr><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  </table>
+
+  <!-- Class Skills -->
+  <h2>Class Skills</h2>
+  <table class="small">
+    <tr>
+      <th style="width: 5%;">Lvl</th>
+      <th style="width: 20%;">Skill Name</th>
+      <th style="width: 10%;">Type</th>
+      <th style="width: 10%;">MP Cost</th>
+      <th style="width: 55%;">Effect</th>
+    </tr>
+    <tr><td>1</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>2</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>3</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>4</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>5</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>6</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>7</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>8</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>9</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>10</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>11</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>12</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>13</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>14</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>15</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>16</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>17</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>18</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>19</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>20</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>21</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>22</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>23</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>24</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>25</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>26</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>27</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>28</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>29</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>30</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>31</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>32</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>33</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>34</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>35</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>36</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>37</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>38</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>39</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>40</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>41</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>42</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>43</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>44</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>45</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>46</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>47</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>48</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>49</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+    <tr><td>50</td><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  </table>
+
+  <!-- Add this section to your character sheet HTML -->
+
+<h2>Skill Slots (7 Tiers, 10 Skills Each)</h2>
+
+<!-- Repeat this block for each tier -->
+<h3>Tier 1</h3>
+<table class="small">
+  <tr>
+    <th style="width: 20%;">Skill Name</th>
+    <th style="width: 10%;">Type</th>
+    <th style="width: 10%;">MP Cost</th>
+    <th style="width: 60%;">Effect / Description</th>
+  </tr>
+  <!-- 10 skills per tier -->
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+</table>
+
+<!-- Copy and update tier header for Tiers 2 through 7 -->
+
+<h3>Tier 2</h3>
+<table class="small">
+  <tr>
+    <th style="width: 20%;">Skill Name</th>
+    <th style="width: 10%;">Type</th>
+    <th style="width: 10%;">MP Cost</th>
+    <th style="width: 60%;">Effect / Description</th>
+  </tr>
+  <!-- 10 skills per tier -->
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+</table>
+
+<h3>Tier 3</h3>
+<table class="small">
+  <tr>
+    <th style="width: 20%;">Skill Name</th>
+    <th style="width: 10%;">Type</th>
+    <th style="width: 10%;">MP Cost</th>
+    <th style="width: 60%;">Effect / Description</th>
+  </tr>
+  <!-- 10 skills per tier -->
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+</table>
+
+<h3>Tier 4</h3>
+<table class="small">
+  <tr>
+    <th style="width: 20%;">Skill Name</th>
+    <th style="width: 10%;">Type</th>
+    <th style="width: 10%;">MP Cost</th>
+    <th style="width: 60%;">Effect / Description</th>
+  </tr>
+  <!-- 10 skills per tier -->
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+</table>
+
+<h3>Tier 5</h3>
+<table class="small">
+  <tr>
+    <th style="width: 20%;">Skill Name</th>
+    <th style="width: 10%;">Type</th>
+    <th style="width: 10%;">MP Cost</th>
+    <th style="width: 60%;">Effect / Description</th>
+  </tr>
+  <!-- 10 skills per tier -->
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+</table>
+
+<h3>Tier 6</h3>
+<table class="small">
+  <tr>
+    <th style="width: 20%;">Skill Name</th>
+    <th style="width: 10%;">Type</th>
+    <th style="width: 10%;">MP Cost</th>
+    <th style="width: 60%;">Effect / Description</th>
+  </tr>
+  <!-- 10 skills per tier -->
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+</table>
+
+<h3>Tier 7</h3>
+<table class="small">
+  <tr>
+    <th style="width: 20%;">Skill Name</th>
+    <th style="width: 10%;">Type</th>
+    <th style="width: 10%;">MP Cost</th>
+    <th style="width: 60%;">Effect / Description</th>
+  </tr>
+  <!-- 10 skills per tier -->
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+  <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number"></td><td><textarea></textarea></td></tr>
+</table>
+
+
+  <!-- Talents -->
+  <h2>Talents</h2>
+  <table class="small">
+    <tr>
+      <th style="width: 25%;">Talent Name</th>
+      <th style="width: 15%;">MP Cost</th>
+      <th style="width: 60%;">Description</th>
+    </tr>
+    <tr>
+      <td><input type="text"></td>
+      <td><input type="number"></td>
+      <td><textarea></textarea></td>
+    </tr>
+    <tr>
+      <td><input type="text"></td>
+      <td><input type="number"></td>
+      <td><textarea></textarea></td>
+    </tr>
+    <tr>
+      <td><input type="text"></td>
+      <td><input type="number"></td>
+      <td><textarea></textarea></td>
+    </tr>
+    <tr>
+      <td><input type="text"></td>
+      <td><input type="number"></td>
+      <td><textarea></textarea></td>
+    </tr>
+    <tr>
+      <td><input type="text"></td>
+      <td><input type="number"></td>
+      <td><textarea></textarea></td>
+    </tr>
+    <tr>
+      <td><input type="text"></td>
+      <td><input type="number"></td>
+      <td><textarea></textarea></td>
+    </tr>
+    <tr>
+      <td><input type="text"></td>
+      <td><input type="number"></td>
+      <td><textarea></textarea></td>
+    </tr>
+    <tr>
+      <td><input type="text"></td>
+      <td><input type="number"></td>
+      <td><textarea></textarea></td>
+    </tr>
+  </table>
+
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
